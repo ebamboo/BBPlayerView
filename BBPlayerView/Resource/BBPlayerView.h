@@ -14,6 +14,13 @@ typedef NS_ENUM(NSInteger, BBPlayerViewStatus) {
     BBPlayerViewStatusFailed        = 2
 };
 
+typedef NS_ENUM(NSInteger, BBPlayerViewGravity) {
+    BBPlayerViewGravityUnknow       = -1,
+    BBPlayerViewGravityScaleFill    = 0,
+    BBPlayerViewGravityAspectFill   = 1,
+    BBPlayerViewGravityAspectFit    = 2
+};
+
 @class BBPlayerView;
 @protocol BBPlayerViewDelegate <NSObject>
 @optional
@@ -70,5 +77,13 @@ typedef NS_ENUM(NSInteger, BBPlayerViewStatus) {
 /// @param progress 指定进度。取值范围：0.0 ~ 1.0
 /// @param completionHandler 结束回调。finished 参数：YES 表示跳转完成；NO 表示跳转失败或取消了
 - (void)bb_seekToProgress:(CGFloat)progress completionHandler:(void (^ _Nullable)(BOOL finished))completionHandler;
+
+/**
+ 视频填充模式
+ BBPlayerViewGravityScaleFill   -- 填充满视图，可能变形，内容不会缺失
+ BBPlayerViewGravityAspectFill  -- 填充满视图，不变形，可能内容缺失
+ BBPlayerViewGravityAspectFit   -- 不变形填充视图，直到一个边到达视图边界，内容不会缺失
+ */
+@property(nonatomic) BBPlayerViewGravity videoGravity;
 
 @end

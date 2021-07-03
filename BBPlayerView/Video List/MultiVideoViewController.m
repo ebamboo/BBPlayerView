@@ -7,6 +7,7 @@
 
 #import "MultiVideoViewController.h"
 #import "VideoTableViewCell.h"
+#import "VideoUrl.h"
 
 @interface MultiVideoViewController ()
 
@@ -28,6 +29,12 @@
     [super viewDidLoad];
     
     self.title = @"视频列表";
+//    _urlList = @[
+//        url01, url02, url03, url04,
+//        url05, url06, url07, url08,
+//        url09, url10, url11, url12,
+//        url13, url14, url15, url16
+//    ];
     _urlList = @[
         @"https://www.apple.com/105/media/cn/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cn-2018_1280x720h.mp4",
         @"https://vod.kuama.tv/8319a8f1e8bb45f480bb5e4fe94535e2/adcf8f344dcb42e4829e2e08f027badc-d3b97a7995e831d445ce5cc9994c603e-sd.mp4",

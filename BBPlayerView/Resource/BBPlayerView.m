@@ -125,6 +125,31 @@
     }];
 }
 
+- (BBPlayerViewGravity)videoGravity {
+    if ([_playerLayer.videoGravity isEqualToString:AVLayerVideoGravityResizeAspectFill]) {
+        return BBPlayerViewGravityAspectFill;
+    }
+    if ([_playerLayer.videoGravity isEqualToString:AVLayerVideoGravityResizeAspect]) {
+        return BBPlayerViewGravityAspectFit;
+    }
+    if ([_playerLayer.videoGravity isEqualToString:AVLayerVideoGravityResize]) {
+        return BBPlayerViewGravityScaleFill;
+    }
+    return BBPlayerViewGravityUnknow;
+}
+
+- (void)setVideoGravity:(BBPlayerViewGravity)videoGravity {
+    if (videoGravity == BBPlayerViewGravityAspectFill) {
+        _playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    }
+    if (videoGravity == BBPlayerViewGravityAspectFit) {
+        _playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    }
+    if (videoGravity == BBPlayerViewGravityScaleFill) {
+        _playerLayer.videoGravity = AVLayerVideoGravityResize;
+    }
+}
+
 #pragma mark - 信息回调
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {

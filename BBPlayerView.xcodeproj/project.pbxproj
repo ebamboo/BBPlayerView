@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC4EDF8226909CB90016F581 /* VideoUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUrl.h; sourceTree = "<group>"; };
 		EA4B212C269062F800C3C59E /* BBPlayerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBPlayerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4B212F269062F800C3C59E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA4B2130269062F800C3C59E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 				EA4B21482690639800C3C59E /* RootViewController.h */,
 				EA4B21492690639800C3C59E /* RootViewController.m */,
 				EA4B214A2690639800C3C59E /* RootViewController.xib */,
+				DC4EDF8226909CB90016F581 /* VideoUrl.h */,
 				EA4B21542690662300C3C59E /* Single Video */,
 				EA4B21552690663800C3C59E /* Video List */,
 				EA4B213B269062FC00C3C59E /* Assets.xcassets */,
