@@ -64,9 +64,7 @@
 
 #pragma mark - BBPlayerViewDelegate
 
-- (void)bb_playerViewProgressDidUpdatedAtTime:(CGFloat)currentTime
-                                    totalTime:(CGFloat)totalTime
-                                     progress:(CGFloat)progress {
+- (void)bb_playerView:(nullable BBPlayerView *)playerView progressDidUpdatedAtTime:(CGFloat)currentTime totalTime:(CGFloat)totalTime progress:(CGFloat)progress {
     if (progress >= 1.0) {
         if (_loopSwitch.isOn) {
             [self replay:nil];
@@ -74,14 +72,11 @@
     }
 }
 
-- (void)bb_playerViewStatusDidUpdated:(BBPlayerViewStatus)status {
+- (void)bb_playerView:(nullable BBPlayerView *)playerView statusDidUpdated:(BBPlayerViewStatus)status {
     NSLog(@"status = %@", @(status));
 }
 
-- (void)bb_playerViewDidPreloadData:(CGFloat)startTime
-                       durationTime:(CGFloat)durationTime
-                    totalLoadedTime:(CGFloat)totalLoadedTime
-                          totalTime:(CGFloat)totalTime {
+- (void)bb_playerView:(nullable BBPlayerView *)playerView didPreloadData:(CGFloat)startTime durationTime:(CGFloat)durationTime totalLoadedTime:(CGFloat)totalLoadedTime totalTime:(CGFloat)totalTime {
     
 }
 

@@ -140,8 +140,8 @@
                 if(weakSelf.playerItem.status == AVPlayerItemStatusReadyToPlay) {
                     [weakSelf.playerLayer setHidden:NO];
                 }
-                if (weakSelf.bb_delegate && [weakSelf.bb_delegate respondsToSelector:@selector(bb_playerViewStatusDidUpdated:)]) {
-                    [weakSelf.bb_delegate bb_playerViewStatusDidUpdated:(BBPlayerViewStatus)weakSelf.playerItem.status];
+                if (weakSelf.bb_delegate && [weakSelf.bb_delegate respondsToSelector:@selector(bb_playerView:statusDidUpdated:)]) {
+                    [weakSelf.bb_delegate bb_playerView:weakSelf statusDidUpdated:(BBPlayerViewStatus)weakSelf.playerItem.status];
                 }
             }
         }
@@ -152,8 +152,8 @@
             CGFloat durationTime = CMTimeGetSeconds(timeRange.duration);
             CGFloat totalLoadedTime = startTime + durationTime;
             CGFloat totalTime = CMTimeGetSeconds(weakSelf.playerItem.duration);
-            if (weakSelf.bb_delegate && [weakSelf.bb_delegate respondsToSelector:@selector(bb_playerViewDidPreloadData:durationTime:totalLoadedTime:totalTime:)]) {
-                [weakSelf.bb_delegate bb_playerViewDidPreloadData:startTime durationTime:durationTime totalLoadedTime:totalLoadedTime totalTime:totalTime];
+            if (weakSelf.bb_delegate && [weakSelf.bb_delegate respondsToSelector:@selector(bb_playerView:didPreloadData:durationTime:totalLoadedTime:totalTime:)]) {
+                [weakSelf.bb_delegate bb_playerView:weakSelf didPreloadData:startTime durationTime:durationTime totalLoadedTime:totalLoadedTime totalTime:totalTime];
             }
         }
     });
@@ -168,8 +168,8 @@
         if (progress > 1.0) { // 实际测试中发现 currentTime 在结束时可能大于 totalTime，可能计时器不准确造成的
             progress = 1.0;
         }
-        if (_bb_delegate && [_bb_delegate respondsToSelector:@selector(bb_playerViewProgressDidUpdatedAtTime:totalTime:progress:)]) {
-            [_bb_delegate bb_playerViewProgressDidUpdatedAtTime:currentTime totalTime:totalTime progress:progress];
+        if (_bb_delegate && [_bb_delegate respondsToSelector:@selector(bb_playerView:progressDidUpdatedAtTime:totalTime:progress:)]) {
+            [_bb_delegate bb_playerView:self progressDidUpdatedAtTime:currentTime totalTime:totalTime progress:progress];
         }
     }
 }

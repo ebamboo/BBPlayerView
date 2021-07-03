@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, BBPlayerViewStatus) {
     BBPlayerViewStatusFailed        = 2
 };
 
+@class BBPlayerView;
 @protocol BBPlayerViewDelegate <NSObject>
 @optional
 
@@ -21,18 +22,13 @@ typedef NS_ENUM(NSInteger, BBPlayerViewStatus) {
  播放进度更新回调
  当播放结束后可以决定是否循环播放
  */
-- (void)bb_playerViewProgressDidUpdatedAtTime:(CGFloat)currentTime
-                                    totalTime:(CGFloat)totalTime
-                                     progress:(CGFloat)progress;
+- (void)bb_playerView:(nullable BBPlayerView *)playerView progressDidUpdatedAtTime:(CGFloat)currentTime totalTime:(CGFloat)totalTime progress:(CGFloat)progress;
 
 /** 播放状态变化回调 */
-- (void)bb_playerViewStatusDidUpdated:(BBPlayerViewStatus)status;
+- (void)bb_playerView:(nullable BBPlayerView *)playerView statusDidUpdated:(BBPlayerViewStatus)status;
 
 /** 预加载进度回调 */
-- (void)bb_playerViewDidPreloadData:(CGFloat)startTime
-                       durationTime:(CGFloat)durationTime
-                    totalLoadedTime:(CGFloat)totalLoadedTime
-                          totalTime:(CGFloat)totalTime;
+- (void)bb_playerView:(nullable BBPlayerView *)playerView didPreloadData:(CGFloat)startTime durationTime:(CGFloat)durationTime totalLoadedTime:(CGFloat)totalLoadedTime totalTime:(CGFloat)totalTime;
 
 @end
 

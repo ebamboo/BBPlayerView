@@ -140,16 +140,14 @@
 
 #pragma mark - BBPlayerViewDelegate
 
-- (void)bb_playerViewProgressDidUpdatedAtTime:(CGFloat)currentTime
-                                    totalTime:(CGFloat)totalTime
-                                     progress:(CGFloat)progress {
+- (void)bb_playerView:(nullable BBPlayerView *)playerView progressDidUpdatedAtTime:(CGFloat)currentTime totalTime:(CGFloat)totalTime progress:(CGFloat)progress {
     NSLog(@"====== (%.0f, %.0f, %.0f%%)", currentTime, totalTime, progress * 100);
     if (progress >= 1.0) {
         [self setStatus:VideoTableViewCellStatusPausedAtEnd];
     }
 }
 
-- (void)bb_playerViewStatusDidUpdated:(BBPlayerViewStatus)status {
+- (void)bb_playerView:(nullable BBPlayerView *)playerView statusDidUpdated:(BBPlayerViewStatus)status {
     if (status == BBPlayerViewStatusUnknown) {
         [self setStatus:VideoTableViewCellStatusUnknown];
     }
@@ -164,10 +162,7 @@
     }
 }
 
-- (void)bb_playerViewDidPreloadData:(CGFloat)startTime
-                       durationTime:(CGFloat)durationTime
-                    totalLoadedTime:(CGFloat)totalLoadedTime
-                          totalTime:(CGFloat)totalTime {
+- (void)bb_playerView:(nullable BBPlayerView *)playerView didPreloadData:(CGFloat)startTime durationTime:(CGFloat)durationTime totalLoadedTime:(CGFloat)totalLoadedTime totalTime:(CGFloat)totalTime {
     
 }
 
