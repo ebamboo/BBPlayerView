@@ -6,6 +6,8 @@
 //
 
 #import "RootViewController.h"
+#import "SingleVideoViewController.h"
+#import "MultiVideoViewController.h"
 
 @interface RootViewController ()
 
@@ -19,11 +21,11 @@
 }
 
 - (IBAction)singleVideoAction:(id)sender {
-    NSLog(@"single");
+    [self.navigationController pushViewController:[SingleVideoViewController new] animated:YES];
 }
 
 - (IBAction)videoListAction:(id)sender {
-    NSLog(@"fasdfsadfasdfsdf");
+    [self.navigationController pushViewController:[MultiVideoViewController new] animated:YES];
 }
 
 @end

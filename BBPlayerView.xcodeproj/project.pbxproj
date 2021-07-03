@@ -13,6 +13,14 @@
 		EA4B2142269062FC00C3C59E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B2141269062FC00C3C59E /* main.m */; };
 		EA4B214B2690639800C3C59E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B21492690639800C3C59E /* RootViewController.m */; };
 		EA4B214C2690639800C3C59E /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4B214A2690639800C3C59E /* RootViewController.xib */; };
+		EA4B2152269065F500C3C59E /* BBPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B214F269065F500C3C59E /* BBPlayerView.m */; };
+		EA4B2153269065F500C3C59E /* BBPlayerViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */; };
+		EA4B21592690664900C3C59E /* SingleVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B21572690664900C3C59E /* SingleVideoViewController.m */; };
+		EA4B215A2690664900C3C59E /* SingleVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4B21582690664900C3C59E /* SingleVideoViewController.xib */; };
+		EA4B21612690665B00C3C59E /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B215B2690665B00C3C59E /* VideoTableViewCell.m */; };
+		EA4B21622690665B00C3C59E /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4B215C2690665B00C3C59E /* VideoTableViewCell.xib */; };
+		EA4B21632690665B00C3C59E /* MultiVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4B215D2690665B00C3C59E /* MultiVideoViewController.xib */; };
+		EA4B21642690665B00C3C59E /* MultiVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B215E2690665B00C3C59E /* MultiVideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,19 @@
 		EA4B21482690639800C3C59E /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		EA4B21492690639800C3C59E /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		EA4B214A2690639800C3C59E /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		EA4B214E269065F500C3C59E /* BBPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPlayerView.h; sourceTree = "<group>"; };
+		EA4B214F269065F500C3C59E /* BBPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPlayerView.m; sourceTree = "<group>"; };
+		EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPlayerViewCellManager.m; sourceTree = "<group>"; };
+		EA4B2151269065F500C3C59E /* BBPlayerViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPlayerViewCellManager.h; sourceTree = "<group>"; };
+		EA4B21562690664900C3C59E /* SingleVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleVideoViewController.h; sourceTree = "<group>"; };
+		EA4B21572690664900C3C59E /* SingleVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleVideoViewController.m; sourceTree = "<group>"; };
+		EA4B21582690664900C3C59E /* SingleVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleVideoViewController.xib; sourceTree = "<group>"; };
+		EA4B215B2690665B00C3C59E /* VideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
+		EA4B215C2690665B00C3C59E /* VideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		EA4B215D2690665B00C3C59E /* MultiVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiVideoViewController.xib; sourceTree = "<group>"; };
+		EA4B215E2690665B00C3C59E /* MultiVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiVideoViewController.m; sourceTree = "<group>"; };
+		EA4B215F2690665B00C3C59E /* MultiVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiVideoViewController.h; sourceTree = "<group>"; };
+		EA4B21602690665B00C3C59E /* VideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +79,54 @@
 		EA4B212E269062F800C3C59E /* BBPlayerView */ = {
 			isa = PBXGroup;
 			children = (
+				EA4B214D269065CD00C3C59E /* Resource */,
 				EA4B212F269062F800C3C59E /* AppDelegate.h */,
 				EA4B2130269062F800C3C59E /* AppDelegate.m */,
 				EA4B21482690639800C3C59E /* RootViewController.h */,
 				EA4B21492690639800C3C59E /* RootViewController.m */,
 				EA4B214A2690639800C3C59E /* RootViewController.xib */,
+				EA4B21542690662300C3C59E /* Single Video */,
+				EA4B21552690663800C3C59E /* Video List */,
 				EA4B213B269062FC00C3C59E /* Assets.xcassets */,
 				EA4B213D269062FC00C3C59E /* LaunchScreen.storyboard */,
 				EA4B2140269062FC00C3C59E /* Info.plist */,
 				EA4B2141269062FC00C3C59E /* main.m */,
 			);
 			path = BBPlayerView;
+			sourceTree = "<group>";
+		};
+		EA4B214D269065CD00C3C59E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EA4B214E269065F500C3C59E /* BBPlayerView.h */,
+				EA4B214F269065F500C3C59E /* BBPlayerView.m */,
+				EA4B2151269065F500C3C59E /* BBPlayerViewCellManager.h */,
+				EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		EA4B21542690662300C3C59E /* Single Video */ = {
+			isa = PBXGroup;
+			children = (
+				EA4B21562690664900C3C59E /* SingleVideoViewController.h */,
+				EA4B21572690664900C3C59E /* SingleVideoViewController.m */,
+				EA4B21582690664900C3C59E /* SingleVideoViewController.xib */,
+			);
+			path = "Single Video";
+			sourceTree = "<group>";
+		};
+		EA4B21552690663800C3C59E /* Video List */ = {
+			isa = PBXGroup;
+			children = (
+				EA4B215F2690665B00C3C59E /* MultiVideoViewController.h */,
+				EA4B215E2690665B00C3C59E /* MultiVideoViewController.m */,
+				EA4B215D2690665B00C3C59E /* MultiVideoViewController.xib */,
+				EA4B21602690665B00C3C59E /* VideoTableViewCell.h */,
+				EA4B215B2690665B00C3C59E /* VideoTableViewCell.m */,
+				EA4B215C2690665B00C3C59E /* VideoTableViewCell.xib */,
+			);
+			path = "Video List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +187,9 @@
 			files = (
 				EA4B213F269062FC00C3C59E /* LaunchScreen.storyboard in Resources */,
 				EA4B213C269062FC00C3C59E /* Assets.xcassets in Resources */,
+				EA4B215A2690664900C3C59E /* SingleVideoViewController.xib in Resources */,
+				EA4B21622690665B00C3C59E /* VideoTableViewCell.xib in Resources */,
+				EA4B21632690665B00C3C59E /* MultiVideoViewController.xib in Resources */,
 				EA4B214C2690639800C3C59E /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,8 +201,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4B21612690665B00C3C59E /* VideoTableViewCell.m in Sources */,
 				EA4B2131269062F800C3C59E /* AppDelegate.m in Sources */,
+				EA4B2153269065F500C3C59E /* BBPlayerViewCellManager.m in Sources */,
+				EA4B21592690664900C3C59E /* SingleVideoViewController.m in Sources */,
+				EA4B2152269065F500C3C59E /* BBPlayerView.m in Sources */,
 				EA4B2142269062FC00C3C59E /* main.m in Sources */,
+				EA4B21642690665B00C3C59E /* MultiVideoViewController.m in Sources */,
 				EA4B214B2690639800C3C59E /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
