@@ -1,3 +1,6 @@
+![BBPlayerView](https://gitee.com/ebamboo/media/raw/master/BBPlayerView/readme/title.png)
+# BBPlayerView
+一个高度封装的视频播放器视图，继承自 UIView，可以当做一般视图使用，适用于 Swift 和 Objective-C。
 # Installation
 #### Requirements
 * Xcode 8 or higher
