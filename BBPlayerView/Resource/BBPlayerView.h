@@ -1,8 +1,10 @@
 //
 //  BBPlayerView.h
-//  BBCommonKits
+//  BBPlayerView
 //
 //  Created by ebamboo on 2021/3/24.
+//
+//  https://github.com/ebamboo/BBPlayerView
 //
 
 #import <UIKit/UIKit.h>
@@ -84,6 +86,6 @@ typedef NS_ENUM(NSInteger, BBPlayerViewGravity) {
  BBPlayerViewGravityAspectFill  -- 填充满视图，不变形，可能内容缺失
  BBPlayerViewGravityAspectFit   -- 不变形填充视图，直到一个边到达视图边界，内容不会缺失
  */
-@property(nonatomic) BBPlayerViewGravity videoGravity;
+@property(nonatomic) BBPlayerViewGravity bb_videoGravity;
 
 @end

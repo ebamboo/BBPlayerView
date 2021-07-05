@@ -1,6 +1,6 @@
 //
 //  VideoTableViewCell.m
-//  BBPlayerViewTest
+//  BBPlayerView
 //
 //  Created by ebamboo on 2021/3/26.
 //

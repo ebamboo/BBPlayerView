@@ -1,6 +1,6 @@
 //
 //  BBPlayerViewCellManager.m
-//  BBCommonKits
+//  BBPlayerView
 //
 //  Created by ebamboo on 2021/3/27.
 //

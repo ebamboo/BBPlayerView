@@ -1,6 +1,6 @@
 //
 //  BBPlayerView.m
-//  BBCommonKits
+//  BBPlayerView
 //
 //  Created by ebamboo on 2021/3/24.
 //
@@ -125,7 +125,7 @@
     }];
 }
 
-- (BBPlayerViewGravity)videoGravity {
+- (BBPlayerViewGravity)bb_videoGravity {
     if ([_playerLayer.videoGravity isEqualToString:AVLayerVideoGravityResizeAspectFill]) {
         return BBPlayerViewGravityAspectFill;
     }
@@ -138,14 +138,14 @@
     return BBPlayerViewGravityUnknow;
 }
 
-- (void)setVideoGravity:(BBPlayerViewGravity)videoGravity {
-    if (videoGravity == BBPlayerViewGravityAspectFill) {
+- (void)setBb_videoGravity:(BBPlayerViewGravity)bb_videoGravity {
+    if (bb_videoGravity == BBPlayerViewGravityAspectFill) {
         _playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     }
-    if (videoGravity == BBPlayerViewGravityAspectFit) {
+    if (bb_videoGravity == BBPlayerViewGravityAspectFit) {
         _playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
     }
-    if (videoGravity == BBPlayerViewGravityScaleFill) {
+    if (bb_videoGravity == BBPlayerViewGravityScaleFill) {
         _playerLayer.videoGravity = AVLayerVideoGravityResize;
     }
 }
