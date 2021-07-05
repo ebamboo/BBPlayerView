@@ -2,7 +2,7 @@
 //  BBPlayerView.m
 //  BBCommonKits
 //
-//  Created by 征国科技 on 2021/3/24.
+//  Created by ebamboo on 2021/3/24.
 //
 
 #import "BBPlayerView.h"

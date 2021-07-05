@@ -2,7 +2,7 @@
 //  MultiVideoViewController.m
 //  BBPlayerViewTest
 //
-//  Created by 征国科技 on 2021/3/26.
+//  Created by ebamboo on 2021/3/26.
 //
 
 #import "MultiVideoViewController.h"

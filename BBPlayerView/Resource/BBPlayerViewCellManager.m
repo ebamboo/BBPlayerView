@@ -2,7 +2,7 @@
 //  BBPlayerViewCellManager.m
 //  BBCommonKits
 //
-//  Created by 姚旭 on 2021/3/27.
+//  Created by ebamboo on 2021/3/27.
 //
 
 #import "BBPlayerViewCellManager.h"

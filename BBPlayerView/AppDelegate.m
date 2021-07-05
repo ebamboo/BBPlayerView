@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  BBPlayerView
 //
-//  Created by 姚旭 on 2021/7/3.
+//  Created by ebamboo on 2021/7/3.
 //
 
 #import "AppDelegate.h"

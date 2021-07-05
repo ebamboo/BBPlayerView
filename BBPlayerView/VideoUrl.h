@@ -2,7 +2,7 @@
 //  VideoUrl.h
 //  BBPlayerView
 //
-//  Created by 征国科技 on 2021/7/3.
+//  Created by ebamboo on 2021/7/3.
 //
 
 #import <Foundation/Foundation.h>
