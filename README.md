@@ -89,6 +89,39 @@ pod 'BBPlayerView'
 
 @end
 ```
+```
+@interface BBPlayerViewCellManager : NSObject
+
+@property (class, readonly) BBPlayerViewCellManager *bb_manager;
+
+/**
+ 添加真实播放视频的 cell
+ 只在 cell 播放视频时把该 cell 加入到 manager 来管理
+ */
+- (void)addCell:(id<BBPlayerViewCellManagerDelegate>)cell;
+
+/**
+ 移除 cell
+ 在 cell 进入可复用状态调用
+ 即：在 -prepareForReuse 调用该方法
+ */
+- (void)removeCell:(id<BBPlayerViewCellManagerDelegate>)cell;
+
+/**
+ 移除全部 cell
+ 在列表所在控制器销毁时调用
+ 即：在 -dealloc 调用该方法
+ */
+- (void)removeAllCells;
+
+/**
+ 所有 cell 暂停播放
+ 指定某个 cell 播放时，其他所有 cell 暂停播放
+ */
+- (void)pauseAllCellPlayers;
+
+@end
+```
 # Use
 #### 导入文件
 * Swift 中在需要引用的地方 
@@ -99,6 +132,17 @@ import BBPlayerView
 ```
 #import "BBPlayerView.h"
 ```
+#### 使用说明
+BBPlayerView 可以像 UIView 一样代码创建或者在 xib、storyboard 拖拽创建。
+详细使用方法请下载项目参考使用示例，包括简单的视频播放和视频列表播放功能。
+1. 如果不关心资源加载状态只需两个代码即可实现。
+```
+[_playerView bb_loadDataWithURL:_URLField.text];
+[_playerView bb_play];
+```
+2. 通过 BBPlayerView 提供的公开方法可以很容易实现：加载播放资源、播放、暂停、重新播放、跳转指定进度、释放资源清空播放器。
+3. 视频列表一般会保证只有一个视频在播放，所以要控制 cell 中的播放器在其他 cell 播放时暂停播放。
+BBPlayerViewCellManager 就是一个管理视频列表 cell 的管理类。
 # 播放状态转移图片
 图片中箭头表示操作或持续操作的结果，矩形表示状态。
 ![状态转移图](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/read.png)
