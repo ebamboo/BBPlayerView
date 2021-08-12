@@ -15,7 +15,8 @@ pod 'BBPlayerView'
 1. 下载 BBPlayerView。
 2. 添加 "BBPlayerView/Resource" 文件夹到项目中。
 # Use
-![](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/simple.png)![](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/multi.png)
+![simple](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/simple.png)
+![multi](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/multi.png)
 #### 导入文件
 * Swift 中在需要引用的地方 
 ```
