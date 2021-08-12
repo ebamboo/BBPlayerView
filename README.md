@@ -22,5 +22,9 @@ import BBPlayerView
 ```
 * Objective-C 中在需要引用的地方
 ```
-#import <BBPlayerView.h>
+#import "BBPlayerView.h"
 ```
+#### 播放状态转移图片
+图片中箭头表示操作或持续操作的结果，矩形表示状态
+![状态转移图](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/read.png)
+
