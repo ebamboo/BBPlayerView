@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, BBPlayerViewGravity) {
 /**
  代理
  通过代理方法可以获取播放状态、播放进度、预加载进度的变化
- 确保在调用 -bb_loadDataWithURL: 方法之前设置代理属性（如果不需要代理则不用设置）
+ ！！！确保在调用 -bb_loadDataWithURL: 方法之前设置代理属性（如果不需要代理则不用设置）！！！
  */
 @property (nonatomic, weak, nullable) IBOutlet id <BBPlayerViewDelegate> bb_delegate;
 
