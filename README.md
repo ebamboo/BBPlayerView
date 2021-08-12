@@ -27,4 +27,5 @@ import BBPlayerView
 # 播放状态转移图片
 图片中箭头表示操作或持续操作的结果，矩形表示状态
 ![状态转移图](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/read.png)
-
+# License
+BBPlayerView is distributed under the MIT license. See LICENSE file for details.
