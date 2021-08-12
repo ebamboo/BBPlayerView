@@ -135,7 +135,7 @@ import BBPlayerView
 #### 使用说明
 BBPlayerView 可以像 UIView 一样代码创建或者在 xib、storyboard 拖拽创建。
 详细使用方法请下载项目参考使用示例，包括简单的视频播放和视频列表播放功能。
-1. 如果不关心资源加载状态只需两个代码即可实现。
+1. 如果不关心资源加载状态只需两行代码即可实现。
 ```
 [_playerView bb_loadDataWithURL:_URLField.text];
 [_playerView bb_play];
