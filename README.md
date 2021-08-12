@@ -15,6 +15,7 @@ pod 'BBPlayerView'
 1. 下载 BBPlayerView。
 2. 添加 "BBPlayerView/Resource" 文件夹到项目中。
 # Use
+![](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/simple.png)![](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/multi.png)
 #### 导入文件
 * Swift 中在需要引用的地方 
 ```
@@ -25,7 +26,7 @@ import BBPlayerView
 #import "BBPlayerView.h"
 ```
 # 播放状态转移图片
-图片中箭头表示操作或持续操作的结果，矩形表示状态
+图片中箭头表示操作或持续操作的结果，矩形表示状态。
 ![状态转移图](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/read.png)
 # License
 BBPlayerView is distributed under the MIT license. See LICENSE file for details.
