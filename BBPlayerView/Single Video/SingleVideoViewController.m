@@ -41,6 +41,15 @@
     [_playerView bb_release];
 }
 
+- (IBAction)testURLAction:(UIButton *)sender {
+    if (sender.tag == 0) {
+        _URLField.text = @"http://1257982215.vod2.myqcloud.com/dcd3428cvodcq1257982215/983aa2af387702293313925640/j6qit3Ub0hsA.mp4";
+    }
+    if (sender.tag == 1) {
+        _URLField.text = @"http://1257982215.vod2.myqcloud.com/dcd3428cvodcq1257982215/91277451387702293313612892/Vi7xh7EbzNgA.mp4";
+    }
+}
+
 - (IBAction)play:(id)sender {
     [_playerView bb_play];
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADC1E6C82774025C0021CD01 /* BBPlayerView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ADC1E6C72774025C0021CD01 /* BBPlayerView.podspec */; };
 		EA4B2131269062F800C3C59E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B2130269062F800C3C59E /* AppDelegate.m */; };
 		EA4B213C269062FC00C3C59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4B213B269062FC00C3C59E /* Assets.xcassets */; };
 		EA4B213F269062FC00C3C59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4B213D269062FC00C3C59E /* LaunchScreen.storyboard */; };
@@ -24,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DC4EDF8226909CB90016F581 /* VideoUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUrl.h; sourceTree = "<group>"; };
+		ADC1E6C72774025C0021CD01 /* BBPlayerView.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBPlayerView.podspec; sourceTree = SOURCE_ROOT; };
 		EA4B212C269062F800C3C59E /* BBPlayerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBPlayerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4B212F269062F800C3C59E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA4B2130269062F800C3C59E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,16 +82,16 @@
 			isa = PBXGroup;
 			children = (
 				EA4B214D269065CD00C3C59E /* Resource */,
+				EA4B21542690662300C3C59E /* Single Video */,
+				EA4B21552690663800C3C59E /* Video List */,
 				EA4B212F269062F800C3C59E /* AppDelegate.h */,
 				EA4B2130269062F800C3C59E /* AppDelegate.m */,
 				EA4B21482690639800C3C59E /* RootViewController.h */,
 				EA4B21492690639800C3C59E /* RootViewController.m */,
 				EA4B214A2690639800C3C59E /* RootViewController.xib */,
-				DC4EDF8226909CB90016F581 /* VideoUrl.h */,
-				EA4B21542690662300C3C59E /* Single Video */,
-				EA4B21552690663800C3C59E /* Video List */,
 				EA4B213B269062FC00C3C59E /* Assets.xcassets */,
 				EA4B213D269062FC00C3C59E /* LaunchScreen.storyboard */,
+				ADC1E6C72774025C0021CD01 /* BBPlayerView.podspec */,
 				EA4B2140269062FC00C3C59E /* Info.plist */,
 				EA4B2141269062FC00C3C59E /* main.m */,
 			);
@@ -193,6 +194,7 @@
 				EA4B21622690665B00C3C59E /* VideoTableViewCell.xib in Resources */,
 				EA4B21632690665B00C3C59E /* MultiVideoViewController.xib in Resources */,
 				EA4B214C2690639800C3C59E /* RootViewController.xib in Resources */,
+				ADC1E6C82774025C0021CD01 /* BBPlayerView.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -332,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -346,8 +348,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R46WHR2U3X;
 				INFOPLIST_FILE = BBPlayerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,8 +367,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R46WHR2U3X;
 				INFOPLIST_FILE = BBPlayerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

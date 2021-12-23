@@ -42,6 +42,7 @@
 - (void)commonInit {
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:nil];
     _playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    // 加入到最底层的位置
     [self.layer insertSublayer:_playerLayer atIndex:0];
 }
 

@@ -24,6 +24,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _playerView.bb_delegate = self;
+    _playerView.bb_videoGravity = BBPlayerViewGravityAspectFit;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -34,7 +35,7 @@
     [super prepareForReuse];
     [_playerView bb_release];
     _waitToPlayHandler = nil;
-    [BBPlayerViewCellManager.bb_manager removeCell:self];
+    [BBPlayerViewCellManager.bb_manager bb_removeCell:self];
     [self setStatus:VideoTableViewCellStatusUnknown];
 }
 
@@ -82,7 +83,7 @@
 }
 
 - (void)playWithWaitToPlayHandler:(void (^)(VideoTableViewCellStatus status))waitToPlayHandler {
-    [BBPlayerViewCellManager.bb_manager pauseAllCellPlayers];
+    [BBPlayerViewCellManager.bb_manager bb_pauseAllCells];
     if (_status == VideoTableViewCellStatusUnknown) {
         _waitToPlayHandler = waitToPlayHandler;
         return;
@@ -94,7 +95,7 @@
         return;
     }
     if (_status == VideoTableViewCellStatusPaused) {
-        [BBPlayerViewCellManager.bb_manager addCell:self];
+        [BBPlayerViewCellManager.bb_manager bb_addCell:self];
         [_playerView bb_play];
         [self  setStatus:VideoTableViewCellStatusPlaying];
         return;

@@ -8,17 +8,18 @@
 #import "BBPlayerViewCellManager.h"
 
 @interface BBPlayerViewCellManager ()
-
-@property (nonatomic, retain, nonnull) NSMutableArray <id<BBPlayerViewCellManagerDelegate>> *cellList;
-
+// 所管理的 cells 列表，使用弱引用列表进行存储，不需要主动释放cell
+@property (nonatomic, retain, nonnull) NSPointerArray *cellList;
 @end
 
 @implementation BBPlayerViewCellManager
 
+#pragma mark - life circle
+
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _cellList = [NSMutableArray array];
+        _cellList = [NSPointerArray weakObjectsPointerArray];
     }
     return self;
 }
@@ -32,27 +33,32 @@
     return obj;
 }
 
-- (void)addCell:(id<BBPlayerViewCellManagerDelegate>)cell {
-    [_cellList enumerateObjectsUsingBlock:^(id<BBPlayerViewCellManagerDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj bb_pause];
-    }];
-    if (![_cellList containsObject:cell]) {
-        [_cellList addObject:cell];
+#pragma mark - public method
+
+- (void)bb_addCell:(id<BBPlayerViewCellManagerDelegate>)cell {
+    [_cellList compact];
+    for (id<BBPlayerViewCellManagerDelegate> cell in _cellList) {
+        [cell bb_pause];
+    }
+    if (![_cellList.allObjects containsObject:cell]) {
+        [_cellList addPointer:(__bridge void * _Nullable)(cell)];
     }
 }
 
-- (void)removeCell:(id<BBPlayerViewCellManagerDelegate>)cell {
-    [_cellList removeObject:cell];
+- (void)bb_removeCell:(id<BBPlayerViewCellManagerDelegate>)cell {
+    [_cellList compact];
+    NSArray *allCells = _cellList.allObjects;
+    if ([allCells containsObject:cell]) {
+        [_cellList removePointerAtIndex:[allCells indexOfObject:cell]];
+    }
+    [_cellList compact];
 }
 
-- (void)removeAllCells {
-    [_cellList removeAllObjects];
-}
-
-- (void)pauseAllCellPlayers {
-    [_cellList enumerateObjectsUsingBlock:^(id<BBPlayerViewCellManagerDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj bb_pause];
-    }];
+- (void)bb_pauseAllCells {
+    [_cellList compact];
+    for (id<BBPlayerViewCellManagerDelegate> cell in _cellList) {
+        [cell bb_pause];
+    }
 }
 
 @end
