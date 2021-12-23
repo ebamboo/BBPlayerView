@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "BBPlayerView"
-  spec.version      = "1.1.0"
+  spec.version      = "1.1.1"
   spec.license      = "MIT"
   spec.summary      = "基于 AVPlayer、AVPlayerLayer、AVPlayerItem 封装的视频播放器。"
   spec.author       = { "ebamboo" => "1453810050@qq.com" }
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/ebamboo/BBPlayerView"
   spec.source       = { :git => "https://github.com/ebamboo/BBPlayerView.git", :tag => spec.version }
 
-  spec.source_files = "BBPlayerView/Resource/*.{h,m}"
+  spec.source_files = "BBPlayerView/Source Files/*.{h,m}"
   
   spec.platform     = :ios, "11.0"
   spec.requires_arc = true

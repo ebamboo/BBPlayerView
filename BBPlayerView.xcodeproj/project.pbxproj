@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ADC1E6C72774025C0021CD01 /* BBPlayerView.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBPlayerView.podspec; sourceTree = SOURCE_ROOT; };
+		ADC1E6C72774025C0021CD01 /* BBPlayerView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = BBPlayerView.podspec; sourceTree = SOURCE_ROOT; };
 		EA4B212C269062F800C3C59E /* BBPlayerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBPlayerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4B212F269062F800C3C59E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA4B2130269062F800C3C59E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		EA4B212E269062F800C3C59E /* BBPlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				EA4B214D269065CD00C3C59E /* Resource */,
+				EA4B214D269065CD00C3C59E /* Source Files */,
 				EA4B21542690662300C3C59E /* Single Video */,
 				EA4B21552690663800C3C59E /* Video List */,
 				EA4B212F269062F800C3C59E /* AppDelegate.h */,
@@ -98,7 +98,7 @@
 			path = BBPlayerView;
 			sourceTree = "<group>";
 		};
-		EA4B214D269065CD00C3C59E /* Resource */ = {
+		EA4B214D269065CD00C3C59E /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
 				EA4B214E269065F500C3C59E /* BBPlayerView.h */,
@@ -106,7 +106,7 @@
 				EA4B2151269065F500C3C59E /* BBPlayerViewCellManager.h */,
 				EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */,
 			);
-			path = Resource;
+			path = "Source Files";
 			sourceTree = "<group>";
 		};
 		EA4B21542690662300C3C59E /* Single Video */ = {
