@@ -1,10 +1,10 @@
-![BBPlayerView](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/title.png)
+![BBPlayerView](Assets/title.png)
 # BBPlayerView
 一个高度封装的视频播放器视图，基于 AVPlayer、AVPlayerLayer、AVPlayerItem。
 继承自 UIView，可以当做一般视图使用，适用于 Swift 和 Objective-C。
 # Example
 ![simple](Assets/simple.PNG)
-![multi](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/multi.png)
+![multi](Assets/list.PNG)
 # Installation
 #### Requirements
 * Xcode 8 or higher
@@ -145,6 +145,6 @@ BBPlayerView 可以像 UIView 一样代码创建或者在 xib、storyboard 拖�
 BBPlayerViewCellManager 就是一个管理视频列表 cell 的管理类。
 # 播放状态转移
 图片中箭头表示操作或持续操作的结果，矩形表示状态。
-![状态转移图](https://gitee.com/ebamboo/Assets/raw/master/BBPlayerView/readme/read.png)
+![状态转移图](Assets/read.png)
 # License
 BBPlayerView is distributed under the MIT license. See LICENSE file for details.
