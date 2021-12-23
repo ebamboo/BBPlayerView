@@ -16,7 +16,7 @@ pod 'BBPlayerView'
 ```
 #### Manually
 1. 下载 BBPlayerView。
-2. 添加 "BBPlayerView/Resource" 文件夹到项目中。
+2. 添加 "BBPlayerView/Source Files" 文件夹到项目中。
 # Use
 #### 导入文件
 * Swift 中在需要引用的地方 
@@ -35,6 +35,7 @@ import BBPlayerView
 [_playerView bb_play];
 ```
 * 支持加载视频/释放视频、播放/暂停、进度跳转、是否重播
+* 通过代理方法可以获取播放状态、播放进度、预加载进度的变化
 * 通过 BBPlayerViewCellManager 管理播放列表 cell
 # API
 * Delegate
