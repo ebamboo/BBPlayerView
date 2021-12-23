@@ -28,16 +28,14 @@ import BBPlayerView
 #import "BBPlayerView.h"
 ```
 #### 使用说明
-BBPlayerView 可以像 UIView 一样代码创建或者在 xib、storyboard 拖拽创建。
-详细使用方法请下载项目参考使用示例，包括简单的视频播放和视频列表播放功能。
-1. 如果不关心资源加载状态只需两行代码即可实现。
-```
+* 像 UIView 一样代码创建或者在 xib、storyboard 拖拽创建
+* 简单使用只需两行代码即可实现
+ ```
 [_playerView bb_loadDataWithURL:_URLField.text];
 [_playerView bb_play];
 ```
-2. 通过 BBPlayerView 提供的公开方法可以很容易实现：加载播放资源、播放、暂停、重新播放、跳转指定进度、释放资源清空播放器。
-3. 视频列表一般会保证只有一个视频在播放，所以要控制 cell 中的播放器在其他 cell 播放时暂停播放。
-BBPlayerViewCellManager 就是一个管理视频列表 cell 的管理类。
+* 支持加载视频/释放视频、播放/暂停、进度跳转、是否重播
+* 通过 BBPlayerViewCellManager 管理播放列表 cell
 # API
 * Delegate
 ```
