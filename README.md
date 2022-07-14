@@ -3,8 +3,8 @@
 一个高度封装的视频播放器视图，基于 AVPlayer、AVPlayerLayer、AVPlayerItem。
 继承自 UIView，可以当做一般视图使用，适用于 Swift 和 Objective-C。
 # Example
-![simple](Assets/simple.PNG)
-![multi](Assets/list.PNG)
+![simple](Assets/simple01.png)
+![multi](Assets/list01.png)
 # Installation
 #### Requirements
 * Xcode 8 or higher
@@ -36,7 +36,6 @@ import BBPlayerView
 ```
 * 支持加载视频/释放视频、播放/暂停、进度跳转、是否重播
 * 通过代理方法可以获取播放状态、播放进度、预加载进度的变化
-* 通过 BBPlayerViewCellManager 管理播放列表 cell
 # API
 * Delegate
 ```
@@ -94,30 +93,6 @@ import BBPlayerView
 /// @param progress 指定进度。取值范围：0.0 ~ 1.0
 /// @param completionHandler 结束回调。finished 参数：YES 表示跳转完成；NO 表示跳转失败或取消了
 - (void)bb_seekToProgress:(CGFloat)progress completionHandler:(void (^ _Nullable)(BOOL finished))completionHandler;
-
-@end
-```
-```
-@protocol BBPlayerViewCellManagerDelegate <NSObject>
-/// 管理的 cell 必须具有 “暂停” 功能
-- (void)bb_pause;
-@end
-
-@interface BBPlayerViewCellManager : NSObject
-
-@property (class, readonly) BBPlayerViewCellManager *bb_manager;
-
-/// 添加播放视频的 cell
-/// 表示管理该 cell
-- (void)bb_addCell:(id<BBPlayerViewCellManagerDelegate>)cell;
-
-/// 移除 cell
-/// 表示不再管理该 cell
-- (void)bb_removeCell:(id<BBPlayerViewCellManagerDelegate>)cell;
-
-/// 使所有 cell 暂停播放
-/// 一般当某个 cell 播放视频时，其他 cells 应该暂停播放
-- (void)bb_pauseAllCells;
 
 @end
 ```
