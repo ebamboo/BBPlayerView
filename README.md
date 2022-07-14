@@ -3,7 +3,7 @@
 一个高度封装的视频播放器视图，基于 AVPlayer、AVPlayerLayer、AVPlayerItem。
 继承自 UIView，可以当做一般视图使用，适用于 Swift 和 Objective-C。
 # Example
-![simple](Assets/simple.PNG)
+![simple](Assets/simple.png)
 ![multi](Assets/list.PNG)
 # Installation
 #### Requirements
