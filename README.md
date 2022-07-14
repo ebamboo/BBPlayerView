@@ -4,7 +4,7 @@
 继承自 UIView，可以当做一般视图使用，适用于 Swift 和 Objective-C。
 # Example
 ![simple](Assets/simple01.png)
-![multi](Assets/list.PNG)
+![multi](Assets/list01.png)
 # Installation
 #### Requirements
 * Xcode 8 or higher
