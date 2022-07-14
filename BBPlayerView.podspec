@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "BBPlayerView"
-  spec.version      = "1.1.1"
+  spec.version      = "1.2.0"
   spec.license      = "MIT"
   spec.summary      = "基于 AVPlayer、AVPlayerLayer、AVPlayerItem 封装的视频播放器。"
   spec.author       = { "ebamboo" => "1453810050@qq.com" }

@@ -6,7 +6,7 @@
 //
 
 #import "VideoTableViewCell.h"
-#import "BBPlayerViewCellManager.h"
+#import "PlayerViewCellManager.h"
 
 @interface VideoTableViewCell () <BBPlayerViewDelegate>
 

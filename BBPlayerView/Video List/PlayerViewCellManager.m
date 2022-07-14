@@ -1,11 +1,11 @@
 //
-//  BBPlayerViewCellManager.m
+//  PlayerViewCellManager.m
 //  BBPlayerView
 //
-//  Created by ebamboo on 2021/3/27.
+//  Created by ebamboo on 2022/7/14.
 //
 
-#import "BBPlayerViewCellManager.h"
+#import "PlayerViewCellManager.h"
 #import "VideoTableViewCell.h"
 
 @interface PlayerViewCellManager ()

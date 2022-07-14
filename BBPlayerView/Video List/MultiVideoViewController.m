@@ -7,7 +7,7 @@
 
 #import "MultiVideoViewController.h"
 #import "VideoTableViewCell.h"
-#import "BBPlayerViewCellManager.h"
+#import "PlayerViewCellManager.h"
 
 @interface MultiVideoViewController ()
 

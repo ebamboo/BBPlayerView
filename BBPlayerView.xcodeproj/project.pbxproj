@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ADC1E6C82774025C0021CD01 /* BBPlayerView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ADC1E6C72774025C0021CD01 /* BBPlayerView.podspec */; };
+		ADD4E78228801B3D002D8B67 /* PlayerViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD4E78128801B3D002D8B67 /* PlayerViewCellManager.m */; };
 		EA4B2131269062F800C3C59E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B2130269062F800C3C59E /* AppDelegate.m */; };
 		EA4B213C269062FC00C3C59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4B213B269062FC00C3C59E /* Assets.xcassets */; };
 		EA4B213F269062FC00C3C59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4B213D269062FC00C3C59E /* LaunchScreen.storyboard */; };
@@ -15,7 +16,6 @@
 		EA4B214B2690639800C3C59E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B21492690639800C3C59E /* RootViewController.m */; };
 		EA4B214C2690639800C3C59E /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4B214A2690639800C3C59E /* RootViewController.xib */; };
 		EA4B2152269065F500C3C59E /* BBPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B214F269065F500C3C59E /* BBPlayerView.m */; };
-		EA4B2153269065F500C3C59E /* BBPlayerViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */; };
 		EA4B21592690664900C3C59E /* SingleVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B21572690664900C3C59E /* SingleVideoViewController.m */; };
 		EA4B215A2690664900C3C59E /* SingleVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4B21582690664900C3C59E /* SingleVideoViewController.xib */; };
 		EA4B21612690665B00C3C59E /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4B215B2690665B00C3C59E /* VideoTableViewCell.m */; };
@@ -26,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		ADC1E6C72774025C0021CD01 /* BBPlayerView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = BBPlayerView.podspec; sourceTree = SOURCE_ROOT; };
+		ADD4E78028801B3D002D8B67 /* PlayerViewCellManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewCellManager.h; sourceTree = "<group>"; };
+		ADD4E78128801B3D002D8B67 /* PlayerViewCellManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerViewCellManager.m; sourceTree = "<group>"; };
 		EA4B212C269062F800C3C59E /* BBPlayerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBPlayerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4B212F269062F800C3C59E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA4B2130269062F800C3C59E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -38,8 +40,6 @@
 		EA4B214A2690639800C3C59E /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		EA4B214E269065F500C3C59E /* BBPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPlayerView.h; sourceTree = "<group>"; };
 		EA4B214F269065F500C3C59E /* BBPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPlayerView.m; sourceTree = "<group>"; };
-		EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPlayerViewCellManager.m; sourceTree = "<group>"; };
-		EA4B2151269065F500C3C59E /* BBPlayerViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPlayerViewCellManager.h; sourceTree = "<group>"; };
 		EA4B21562690664900C3C59E /* SingleVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleVideoViewController.h; sourceTree = "<group>"; };
 		EA4B21572690664900C3C59E /* SingleVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleVideoViewController.m; sourceTree = "<group>"; };
 		EA4B21582690664900C3C59E /* SingleVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleVideoViewController.xib; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		EA4B21552690663800C3C59E /* Video List */ = {
 			isa = PBXGroup;
 			children = (
-				EA4B2151269065F500C3C59E /* BBPlayerViewCellManager.h */,
-				EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */,
+				ADD4E78028801B3D002D8B67 /* PlayerViewCellManager.h */,
+				ADD4E78128801B3D002D8B67 /* PlayerViewCellManager.m */,
 				EA4B215F2690665B00C3C59E /* MultiVideoViewController.h */,
 				EA4B215E2690665B00C3C59E /* MultiVideoViewController.m */,
 				EA4B215D2690665B00C3C59E /* MultiVideoViewController.xib */,
@@ -206,8 +206,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA4B21612690665B00C3C59E /* VideoTableViewCell.m in Sources */,
+				ADD4E78228801B3D002D8B67 /* PlayerViewCellManager.m in Sources */,
 				EA4B2131269062F800C3C59E /* AppDelegate.m in Sources */,
-				EA4B2153269065F500C3C59E /* BBPlayerViewCellManager.m in Sources */,
 				EA4B21592690664900C3C59E /* SingleVideoViewController.m in Sources */,
 				EA4B2152269065F500C3C59E /* BBPlayerView.m in Sources */,
 				EA4B2142269062FC00C3C59E /* main.m in Sources */,

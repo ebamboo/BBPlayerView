@@ -1,10 +1,8 @@
 //
-//  BBPlayerViewCellManager.h
+//  PlayerViewCellManager.h
 //  BBPlayerView
 //
-//  Created by ebamboo on 2021/3/27.
-//
-//  https://github.com/ebamboo/BBPlayerView
+//  Created by ebamboo on 2022/7/14.
 //
 
 #import <Foundation/Foundation.h>
