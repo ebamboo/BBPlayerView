@@ -8,7 +8,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BBPlayerViewCellManager.h"
 
 typedef NS_ENUM(NSInteger, BBPlayerViewStatus) {
     BBPlayerViewStatusUnknown       = 0,

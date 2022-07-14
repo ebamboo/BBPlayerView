@@ -6,15 +6,16 @@
 //
 
 #import "VideoTableViewCell.h"
+#import "BBPlayerViewCellManager.h"
 
-@interface VideoTableViewCell () <BBPlayerViewDelegate, BBPlayerViewCellManagerDelegate>
+@interface VideoTableViewCell () <BBPlayerViewDelegate>
+
 @property (weak, nonatomic) IBOutlet BBPlayerView *playerView;
+
 @property (weak, nonatomic) IBOutlet UIView *interfaceView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *operationBtn;
 
-@property (nonatomic, assign) VideoTableViewCellStatus status;
-@property (nonatomic, copy) void (^waitToPlayHandler)(VideoTableViewCellStatus status);
 @end
 
 @implementation VideoTableViewCell
@@ -34,11 +35,18 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     [_playerView bb_release];
-    _waitToPlayHandler = nil;
-    [BBPlayerViewCellManager.bb_manager bb_removeCell:self];
-    [self setStatus:VideoTableViewCellStatusUnknown];
+    [PlayerViewCellManager.shared removeCell:self];
+    self.status = VideoTableViewCellStatusUnknown;
 }
 
+#pragma mark - public method
+
+- (void)setVideoURL:(NSString *)videoURL {
+    _videoURL = videoURL;
+    [_playerView bb_loadDataWithURL:videoURL];
+}
+
+// 只修改相应的 UI
 - (void)setStatus:(VideoTableViewCellStatus)status {
     _status = status;
     if (status == VideoTableViewCellStatusUnknown) {
@@ -68,40 +76,19 @@
     }
 }
 
-#pragma mark - public method
-
-- (void)setDataURL:(NSString *)dataURL {
-    _dataURL = dataURL;
-    [_playerView bb_loadDataWithURL:dataURL];
+- (void)tryPlay {
+    if (_status == VideoTableViewCellStatusPaused) {
+        [PlayerViewCellManager.shared pauseAllCells];
+        [_playerView bb_play];
+        self.status = VideoTableViewCellStatusPlaying;
+        [PlayerViewCellManager.shared addCell:self];
+    }
 }
 
-- (void)bb_pause {
+- (void)tryPause {
     if (_status == VideoTableViewCellStatusPlaying) {
         [_playerView bb_pause];
-        [self setStatus:VideoTableViewCellStatusPaused];
-    }
-}
-
-- (void)playWithWaitToPlayHandler:(void (^)(VideoTableViewCellStatus status))waitToPlayHandler {
-    [BBPlayerViewCellManager.bb_manager bb_pauseAllCells];
-    if (_status == VideoTableViewCellStatusUnknown) {
-        _waitToPlayHandler = waitToPlayHandler;
-        return;
-    }
-    if (_status == VideoTableViewCellStatusFailed) {
-        return;
-    }
-    if (_status == VideoTableViewCellStatusPlaying) {
-        return;
-    }
-    if (_status == VideoTableViewCellStatusPaused) {
-        [BBPlayerViewCellManager.bb_manager bb_addCell:self];
-        [_playerView bb_play];
-        [self  setStatus:VideoTableViewCellStatusPlaying];
-        return;
-    }
-    if (_status == VideoTableViewCellStatusPausedAtEnd) {
-        return;
+        self.status = VideoTableViewCellStatusPaused;
     }
 }
 
@@ -115,25 +102,34 @@
     }
     if (status == VideoTableViewCellStatusFailed) {
         NSLog(@"按钮操作--重新加载资源");
-        [_playerView bb_loadDataWithURL:_dataURL];
+        [_playerView bb_loadDataWithURL:_videoURL];
+        self.status = VideoTableViewCellStatusUnknown;
         return;
     }
     if (status == VideoTableViewCellStatusPlaying) {
         NSLog(@"按钮操作--暂停");
-        [self bb_pause];
+        [_playerView bb_pause];
+        self.status = VideoTableViewCellStatusPaused;
         return;
     }
     if (status == VideoTableViewCellStatusPaused) {
         NSLog(@"按钮操作--播放");
-        [self playWithWaitToPlayHandler:nil];
+        [PlayerViewCellManager.shared pauseAllCells];
+        [_playerView bb_play];
+        self.status = VideoTableViewCellStatusPlaying;
+        [PlayerViewCellManager.shared addCell:self];
         return;
     }
     if (status == VideoTableViewCellStatusPausedAtEnd) {
         NSLog(@"按钮操作--重播");
         __weak typeof(self) weakSelf = self;
         [_playerView bb_seekToProgress:0.0 completionHandler:^(BOOL finished) {
-            [weakSelf setStatus:VideoTableViewCellStatusPaused];
-            [weakSelf playWithWaitToPlayHandler:nil];
+            if (finished) {
+                [PlayerViewCellManager.shared pauseAllCells];
+                [weakSelf.playerView bb_play];
+                weakSelf.status = VideoTableViewCellStatusPlaying;
+                [PlayerViewCellManager.shared addCell:weakSelf];
+            }
         }];
         return;
     }
@@ -142,24 +138,29 @@
 #pragma mark - BBPlayerViewDelegate
 
 - (void)bb_playerView:(nullable BBPlayerView *)playerView progressDidUpdatedAtTime:(CGFloat)currentTime totalTime:(CGFloat)totalTime progress:(CGFloat)progress {
-    NSLog(@"====== (%.0f, %.0f, %.0f%%)", currentTime, totalTime, progress * 100);
+    NSLog(@"播放进度：(%.0f, %.0f, %.0f%%)", currentTime, totalTime, progress * 100);
     if (progress >= 1.0) {
-        [self setStatus:VideoTableViewCellStatusPausedAtEnd];
+        self.status = VideoTableViewCellStatusPausedAtEnd;
     }
 }
 
 - (void)bb_playerView:(nullable BBPlayerView *)playerView statusDidUpdated:(BBPlayerViewStatus)status {
     if (status == BBPlayerViewStatusUnknown) {
-        [self setStatus:VideoTableViewCellStatusUnknown];
+        self.status = VideoTableViewCellStatusUnknown;
     }
     if (status == BBPlayerViewStatusFailed) {
-        [self setStatus:VideoTableViewCellStatusFailed];
+        self.status = VideoTableViewCellStatusFailed;
     }
     if (status == BBPlayerViewStatusReadyToPlay) {
-        [self setStatus:VideoTableViewCellStatusPaused];
-    }
-    if (_waitToPlayHandler) {
-        _waitToPlayHandler(_status);
+        if (_onShouldPlay()) {
+            [PlayerViewCellManager.shared pauseAllCells];
+            [_playerView bb_play];
+            self.status = VideoTableViewCellStatusPlaying;
+            [PlayerViewCellManager.shared addCell:self];
+        } else {
+            [_playerView bb_pause];
+            self.status = VideoTableViewCellStatusPaused;
+        }
     }
 }
 

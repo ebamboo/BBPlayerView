@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *URLField;
 @property (weak, nonatomic) IBOutlet UITextField *progressField;
 @property (weak, nonatomic) IBOutlet UISwitch *loopSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
 @property (weak, nonatomic) IBOutlet BBPlayerView *playerView;
 
@@ -74,6 +75,8 @@
 #pragma mark - BBPlayerViewDelegate
 
 - (void)bb_playerView:(nullable BBPlayerView *)playerView progressDidUpdatedAtTime:(CGFloat)currentTime totalTime:(CGFloat)totalTime progress:(CGFloat)progress {
+    double percent = round(progress * 100);
+    _progressLabel.text = [NSString stringWithFormat:@"%.0f%%", percent];
     if (progress >= 1.0) {
         if (_loopSwitch.isOn) {
             [self replay:nil];

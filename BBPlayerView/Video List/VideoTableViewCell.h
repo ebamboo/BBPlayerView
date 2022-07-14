@@ -17,7 +17,12 @@ typedef NS_ENUM(NSInteger, VideoTableViewCellStatus) {
 };
 
 @interface VideoTableViewCell : UITableViewCell
-@property (nonatomic, copy) NSString *dataURL;
-- (void)bb_pause;
-- (void)playWithWaitToPlayHandler:(void (^)(VideoTableViewCellStatus status))waitToPlayHandler;
+
+@property (nonatomic, copy) NSString *videoURL;
+@property (nonatomic, copy) BOOL (^onShouldPlay)(void);
+
+@property (nonatomic, assign) VideoTableViewCellStatus status;
+- (void)tryPlay;
+- (void)tryPause;
+
 @end

@@ -103,8 +103,6 @@
 			children = (
 				EA4B214E269065F500C3C59E /* BBPlayerView.h */,
 				EA4B214F269065F500C3C59E /* BBPlayerView.m */,
-				EA4B2151269065F500C3C59E /* BBPlayerViewCellManager.h */,
-				EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */,
 			);
 			path = "Source Files";
 			sourceTree = "<group>";
@@ -122,6 +120,8 @@
 		EA4B21552690663800C3C59E /* Video List */ = {
 			isa = PBXGroup;
 			children = (
+				EA4B2151269065F500C3C59E /* BBPlayerViewCellManager.h */,
+				EA4B2150269065F500C3C59E /* BBPlayerViewCellManager.m */,
 				EA4B215F2690665B00C3C59E /* MultiVideoViewController.h */,
 				EA4B215E2690665B00C3C59E /* MultiVideoViewController.m */,
 				EA4B215D2690665B00C3C59E /* MultiVideoViewController.xib */,

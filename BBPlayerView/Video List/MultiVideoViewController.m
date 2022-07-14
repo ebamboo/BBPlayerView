@@ -7,12 +7,13 @@
 
 #import "MultiVideoViewController.h"
 #import "VideoTableViewCell.h"
+#import "BBPlayerViewCellManager.h"
 
 @interface MultiVideoViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSArray *urlList;
-@property (nonatomic, retain) NSIndexPath *playingIndexPath; // 正在播放视频的cell对应 indexPath
+@property (nonatomic, retain, readonly) NSIndexPath *middleIndexPath; // 列表中间的 indexPath，可能为空
 
 @end
 
@@ -44,6 +45,17 @@
     
 }
 
+- (NSIndexPath *)middleIndexPath {
+    return [_tableView indexPathForRowAtPoint:CGPointMake(_tableView.frame.size.width/2, _tableView.contentOffset.y + _tableView.frame.size.height/2)];
+}
+
+- (void)tryPlayMiddelVideo {
+    if (self.middleIndexPath) {
+        VideoTableViewCell *cell = [_tableView cellForRowAtIndexPath:self.middleIndexPath];
+        [cell tryPlay];
+    }
+}
+
 #pragma mark - table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -60,7 +72,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoTableViewCell"];
-    cell.dataURL = _urlList[indexPath.section];
+    cell.videoURL = _urlList[indexPath.section];
+    __unsafe_unretained typeof(self) unsafeself = self;
+    cell.onShouldPlay = ^BOOL{
+        return unsafeself.middleIndexPath && (unsafeself.middleIndexPath.section == indexPath.section) && !PlayerViewCellManager.shared.someOneIsPlaying;
+    };
     return cell;
 }
 
@@ -72,40 +88,16 @@
     return 10;
 }
 
-#pragma mark - scroll view
+#pragma mark - scroll view：scrollView 从运动状态变换到静止状态
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
-        UITableView *tableView = (UITableView *)scrollView;
-        NSIndexPath *middleIndexPath = [tableView indexPathForRowAtPoint:CGPointMake(tableView.frame.size.width/2, tableView.contentOffset.y + tableView.frame.size.height/2)];
-        _playingIndexPath = middleIndexPath;
-        [self playVideoOnCell:middleIndexPath];
+        [self tryPlayMiddelVideo];
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    UITableView *tableView = (UITableView *)scrollView;
-    NSIndexPath *middleIndexPath = [tableView indexPathForRowAtPoint:CGPointMake(tableView.frame.size.width/2, tableView.contentOffset.y + tableView.frame.size.height/2)];
-    _playingIndexPath = middleIndexPath;
-    [self playVideoOnCell:middleIndexPath];
-}
-
-#pragma mark - 滑动结束播放居中视频
-
-- (void)playVideoOnCell:(NSIndexPath *)indexPath {
-    VideoTableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-    __weak typeof(cell) weakCell = cell;
-    [cell playWithWaitToPlayHandler:^(VideoTableViewCellStatus status) {
-        if (status == VideoTableViewCellStatusUnknown) {
-            NSLog(@"加载中");
-        }
-        if (status == VideoTableViewCellStatusFailed) {
-            NSLog(@"加载失败");
-        }
-        if (status == VideoTableViewCellStatusPaused) {
-            [weakCell playWithWaitToPlayHandler:nil];
-        }
-    }];
+    [self tryPlayMiddelVideo];
 }
 
 @end
