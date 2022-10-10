@@ -60,6 +60,14 @@
     [_player removeTimeObserver:_timeObserver];
 }
 
+- (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
+    
+}
+
+- (nullable id)valueForUndefinedKey:(NSString *)key {
+    return nil;
+}
+
 #pragma mark - public method
 
 - (void)bb_loadDataWithURL:(NSString *)url {
